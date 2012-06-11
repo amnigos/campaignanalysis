@@ -12,7 +12,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
-import com.placeiq.inputformat.KeyTextInputFormat;
+import com.kuliza.inputformat.KeyTextInputFormat;
         
 public class MobileCount {
         
