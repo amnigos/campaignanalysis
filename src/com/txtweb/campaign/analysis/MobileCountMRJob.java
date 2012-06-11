@@ -18,7 +18,7 @@ public class MobileCount {
         
 public static class Map extends Mapper<Text, Text, Text, Text> {
 
-    private Text category = new Text();
+    private Text category = new Text(); // This can reused so creating outside Map task
         
     public void map(Text key, Text value, Context context) throws IOException, InterruptedException {
         
@@ -30,7 +30,7 @@ public static class Map extends Mapper<Text, Text, Text, Text> {
 
         	category.set(tokenizer.nextToken());
 
-            context.write(key, category);
+            context.write(key, category); 
 
         }
 
@@ -48,7 +48,7 @@ public static class Map extends Mapper<Text, Text, Text, Text> {
 
             String category = val.toString();
 	
-	       // Since we get all mobile numbers and the category of it, we need to ignore all numbers which are part of "S" - scrubbbed
+	       // Since we get all mobile numbers and the category of it, we need to ignore all numbers which are part of "S" - scrubbbed list
 	       if (category.equals("S")) isUnique = false;
 
         }
@@ -76,7 +76,7 @@ public static class Map extends Mapper<Text, Text, Text, Text> {
 
     //conf.set("key.value.separator.in.input.line", "/t");
        
-    job.setInputFormatClass(KeyTextInputFormat.class);
+    job.setInputFormatClass(KeyTextInputFormat.class); //Using custom input format class
     job.setOutputFormatClass(TextOutputFormat.class);
         
     FileInputFormat.addInputPath(job, new Path(args[0]));
