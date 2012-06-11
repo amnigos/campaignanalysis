@@ -5,9 +5,11 @@ Total job processing time is less than 5 minutes.
 
 Job Execution Command:
 
-$ bin/hadoop jar <path-to-mobilecountmrjob-jar> <input-path> <output-path>
+$ bin/hadoop jar path-to-mobilecountmrjob-jar input-dir-path output-dir-path
 
-<input-path> - This directory should have two csv files, One with all mobile numbers and other with scrubbed numbers.
+input-dir-path : This directory should have two csv files, One with all mobile numbers and other with scrubbed numbers.
 
-<output-path> - This shouldn't exist else Hadoop job will fail.
+output-dir-path : This shouldn't exist else Hadoop job will fail.
+
+
 
