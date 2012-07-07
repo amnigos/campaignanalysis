@@ -1,4 +1,4 @@
-package com.txtweb.campaign.analysis;
+package com.kuliza.campaign.analysis;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;

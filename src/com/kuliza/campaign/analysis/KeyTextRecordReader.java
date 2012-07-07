@@ -1,4 +1,4 @@
-package com.txtweb.campaign.analysis;
+package com.kuliza.campaign.analysis;
 
 import java.io.IOException;
 

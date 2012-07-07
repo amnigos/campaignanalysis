@@ -1,0 +1,52 @@
+<project name="campaignanalysis" basedir="." default="main">
+
+<property name="src.dir" value="src" />
+
+<property name="build.dir" value="build" />
+<property name="classes.dir" value="${build.dir}/classes" />
+<property name="jar.dir" value="../jar" />
+<property name="lib.dir" value="lib" />
+
+<property name="main-class" value="com.kuliza.campaign.analysis.MobileCount" />
+
+<path id="classpath">
+<fileset dir="${lib.dir}" includes="**/*.jar" />
+</path>
+<target name="clean">
+<delete dir="${build.dir}" />
+</target>
+
+<target name="compile">
+<mkdir dir="${classes.dir}" />
+<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath" debug="true" />
+</target>
+
+<pathconvert property="manifest.classpath" pathsep=" ">
+<path refid="classpath" />
+<mapper>
+<chainedmapper>
+<flattenmapper />
+<globmapper from="*.jar" to="lib/*.jar" />
+</chainedmapper>
+</mapper>
+</pathconvert>
+
+
+<target name="jar" depends="compile">
+<mkdir dir="${jar.dir}" />
+<jar destfile="${jar.dir}/${ant.project.name}.jar">
+<manifest>
+<attribute name="Main-Class" value="${main-class}" />
+<attribute name="Class-Path" value="${manifest.classpath}" />
+</manifest>
+<fileset dir="${classes.dir}" includes="**/*.class" />
+<fileset dir=".">
+<include name="${lib.dir}/*.jar" />
+</fileset>
+
+</jar>
+</target>
+
+<target name="main" depends="clean,jar" />
+
+</project>

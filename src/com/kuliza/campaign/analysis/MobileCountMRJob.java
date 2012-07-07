@@ -1,4 +1,4 @@
-package com.txtweb.campaign.analysis;
+package com.kuliza.campaign.analysis;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
@@ -14,7 +14,7 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 
         
-public class MobileCount {
+public class MobileCountMRJob {
         
 public static class Map extends Mapper<Text, Text, Text, Text> {
 
